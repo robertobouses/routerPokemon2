@@ -3,16 +3,18 @@ import { ref } from "vue";
 
 export const useGetData = () => {
     const data = ref(null);
-    const errorData = ref(null);
+    const error = ref(null);
     const loading = ref(true);
 
     const getData = async (url) => {
         loading.value = true;
         try {
             const res = await axios.get(url);
+            console.log(res); // Ver la respuesta de la API
             data.value = res.data;
         } catch (e) {
-           error.value ="Error de servidor";
+             console.log(e);
+            error.value = "Error de servidor";
         } finally {
             loading.value = false;
         }

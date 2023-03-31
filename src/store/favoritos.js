@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
-export const useFavoritoStore = defineStore("favoritos", () => {
+export const useFavoritosStore = defineStore("favoritos", () => {
     const favoritos = ref([]);
 
     if (localStorage.getItem("favoritos")) {
@@ -9,7 +9,6 @@ export const useFavoritoStore = defineStore("favoritos", () => {
     }
 
     const add = (poke) => {
-        console.log(poke);
         favoritos.value.push(poke);
         localStorage.setItem("favoritos", JSON.stringify(favoritos.value));
     };
