@@ -30,6 +30,13 @@ const router = createRouter({
       component: () => import("../views/PokeView.vue")
     },
   
+    {
+      path: "/favoritos",
+      name: "favoritos",
+      component: () => import('../views/FavoritosView.vue')
+    },
+
+
     {//este pad sirve para que si el cliente se equivoca en la URL salga mensaje 404 not found. Ponerlo de último porque debe ir primero buscando la ruta en anteirors
       path: "/:pathMatch(.*)*",
       name: "NotFound",
